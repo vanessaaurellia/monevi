@@ -17,7 +17,6 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
                     <li class="nav-item"><a class="nav-link" href="auth-login.html">Login</a></li>
                 </ul><a class="btn btn-primary shadow" role="button" href="auth-register.html">Register</a>
             </div>
@@ -187,7 +186,34 @@
         </div>
     </footer>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/startup-modern.js"></script>
+    <script>
+        (function() {
+            "use strict"; // Start of use strict
+
+            var mainNav = document.querySelector('#mainNav');
+
+            if (mainNav) {
+
+                // Collapse Navbar
+                var collapseNavbar = function() {
+
+                var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+
+                if (scrollTop > 100) {
+                    mainNav.classList.add("navbar-shrink");
+                } else {
+                    mainNav.classList.remove("navbar-shrink");
+                }
+                };
+                // Collapse now if page is not at top
+                collapseNavbar();
+                // Collapse the navbar when page is scrolled
+                document.addEventListener("scroll", collapseNavbar);
+            }
+
+            })(); // End of use strict
+    </script>
+    
 </body>
 
 </html>
